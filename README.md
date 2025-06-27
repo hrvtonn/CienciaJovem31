@@ -65,24 +65,6 @@ O front-end estará em http://localhost:3000
 
 ---
 
-## 📝 Como subir para o GitHub
-
-1. **Crie um repositório no GitHub** (pelo site github.com)
-2. No terminal, na pasta raiz do projeto:
-   ```bash
-   git init
-   git add .
-   git commit -m "Projeto inicial: 31ª Ciência Jovem"
-   git branch -M main
-   git remote add origin https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git
-   git push -u origin main
-   ```
-   > Substitua `SEU_USUARIO` e `NOME_DO_REPOSITORIO` pelo seu usuário e nome do repositório no GitHub.
-
-3. Pronto! O projeto estará no seu GitHub.
-
----
-
 ## 📚 Dicas
 - Para rodar o MongoDB localmente, basta instalar e iniciar o serviço (ou use o MongoDB Compass para facilitar).
 - Para usar MongoDB Atlas (nuvem), troque a variável `MONGODB_URI` no `.env` do backend.
@@ -90,6 +72,3 @@ O front-end estará em http://localhost:3000
 - O campo "Resumo" do projeto pode ser condicionado por data (ex: só aparece em agosto/2025). Peça para o assistente implementar!
 
 ---
-
-## 👨‍💻 Suporte
-Se precisar de mais funcionalidades, integração, deploy ou dúvidas, só pedir! 
