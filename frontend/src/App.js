@@ -4,32 +4,35 @@ import InstituicaoForm from './components/InstituicaoForm';
 import ProjetoForm from './components/ProjetoForm';
 import Login from './components/Login';
 import Admin from './components/Admin';
+import Header from './components/layout/Header';
+import Nav from './components/layout/Nav';
+import { AuthProvider, useAuth } from './context/AuthContext';
 
-function App() {
+function MainApp() {
   const [page, setPage] = useState('participante');
-  const [token, setToken] = useState(null);
+  const { token, setToken } = useAuth();
 
   return (
     <div>
-      <header>
-        <h1>31ª Ciência Jovem</h1>
-        <nav>
-          <button onClick={() => setPage('participante')}>Participante</button>
-          <button onClick={() => setPage('instituicao')}>Instituição</button>
-          <button onClick={() => setPage('projeto')}>Projeto</button>
-          <button onClick={() => setPage('login')}>Login</button>
-          <button onClick={() => setPage('admin')}>Admin</button>
-        </nav>
-      </header>
+      <Header />
+      <Nav setPage={setPage} />
       <main>
         {page === 'participante' && <ParticipanteForm />}
         {page === 'instituicao' && <InstituicaoForm />}
         {page === 'projeto' && <ProjetoForm />}
         {page === 'login' && <Login setToken={setToken} />}
-        {page === 'admin' && <Admin token={token} />}
+        {page === 'admin' && (token ? <Admin token={token} /> : <p>Acesso restrito. Faça login.</p>)}
       </main>
     </div>
   );
 }
 
-export default App; 
+function App() {
+  return (
+    <AuthProvider>
+      <MainApp />
+    </AuthProvider>
+  );
+}
+
+export default App;
